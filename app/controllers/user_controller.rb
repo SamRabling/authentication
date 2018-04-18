@@ -12,13 +12,16 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect_to "/sessions/new"
     else
-      flash[:errors] = ["Invalid Combination"]
+      flash[:errors] = ["can't be blank"]
       redirect_to "/users/new"
     end
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def edit
   end
 
   def destroy

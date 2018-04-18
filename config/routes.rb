@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'users/:id' => 'user#show'
 
+  post 'users/:id' => 'suser#edit'
+
   post 'sessions/:id' => 'sessions#destroy'
 
   
