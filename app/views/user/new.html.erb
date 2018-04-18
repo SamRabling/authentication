@@ -1,14 +1,14 @@
-<% if flash[:error] %>
-    <% flash [:error].each do |err| %>
-        <h4><%= err %> </h4>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <h4><%= error %> </h4>
     <% end %>
 <% end %>
 
-<form action = "user/create" method = "post">
+<form action = "create" method = "post">
   <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
-  <label>Email:</label> <input type = "text" name = "email[email]" id = "email"> 
-  <label>Name:</label> <input type = "text" name = "name[name]" id = "name">
-  <label>Password:</label> <input type = "text" name = "password[password]" id = "password">   
-  <label>Password_confirm:</label> <input type = "text" name = "password_confirm[password_confirm]" id = "password_confirm"> 
+  <label>Email:</label> <input type = "text" name = "email" id = "email"> 
+  <label>Name:</label> <input type = "text" name = "name" id = "name">
+  <label>Password:</label> <input type = "text" name = "password" id = "password">   
+  <label>Password Confirm:</label> <input type = "text" name = "password_confirm" id = "password_confirm"> 
   <input type = "submit" value = "Join">
 </form>

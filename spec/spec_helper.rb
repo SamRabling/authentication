@@ -1,10 +1,10 @@
-def log_in email: "fry@planetexpress.com", password: "asdasdasd"
+def log_in email: "fry@planetexpress.com", password: "password"
   visit '/sessions/new' unless current_path == "/sessions/new"
-  fill_in 'Email', with: email
-  fill_in 'Password', with: password
+  fill_in 'email', with: email
+  fill_in 'password', with: password
   click_button 'Log In'
 end
-require 'spec_helper'
+# require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
