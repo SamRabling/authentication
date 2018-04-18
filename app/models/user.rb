@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  before_save :email_lowercase
+  before_validation :email_lowercase
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
   
   validates :name, :email, presence: true

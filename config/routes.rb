@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   post 'users/create' => 'user#create'
 
   get 'users/:id' => 'user#show'
+  
+  get 'users/:id/edit' => 'user#edit'
 
-  post 'users/:id' => 'suser#edit'
+  patch 'users/:id/update' => 'user#update'
 
-  post 'sessions/:id' => 'sessions#destroy'
+  delete 'users/:id/delete' => 'sessions#destroy'
+
+  
 
   
 
