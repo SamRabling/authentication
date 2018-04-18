@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :secrets, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :secrets_liked, through: :likes
+
   before_validation :email_lowercase
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
   
