@@ -1,2 +1,20 @@
 <p><%=@user.name %></p>
 <p><a href="/users/<%=current_user.id%>/edit">Edit Profile</a></p>
+
+<form action="/users/secrets/<%=current_user.id%>/create" method="post">
+    <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+    <input type = "text" value = "content" name="content">
+    <input type = "submit" value = "Create Secret" name="submit">
+</form>
+
+    <% @user.secrets.each do |secret| %> <p>
+        <%=secret.content%>
+    
+        <% if @user == secret.user %>
+            <form action = "/users/secrets/<%=secret.id%>/delete" method = "post">
+                <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+                <input type = 'hidden' name = "_method" value = "delete">
+                <input type = "submit" value = "Delete Secret" name="submit">
+            </form>
+        <% end %>
+    <% end %>
